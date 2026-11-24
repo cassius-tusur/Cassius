@@ -59,7 +59,7 @@ public partial class ElementEditorViewModel : ViewModelBase
         }
 
         _tempRelations.Clear();
-        foreach (var r in AppState.Plot.Relations.Where(x => Equals(x.Source, element)))
+        foreach (var r in AppState.Plot.Relations.Where(x => x.Source.Id == element.Id))
         {
             _tempRelations.Add(r);
         }
@@ -194,10 +194,10 @@ public partial class ElementEditorViewModel : ViewModelBase
                 return true;
         }
 
-        var oldRels = AppState.Plot.Relations.Where(r => Equals(r.Source, Element)).ToList();
+        var oldRels = AppState.Plot.Relations.Where(r => r.Source.Id == Element.Id).ToList();
         return oldRels.Count != _tempRelations.Count ||
                _tempRelations.Any(r => !oldRels.Any(or =>
-                   or.Target.Equals(r.Target) &&
+                   or.Target.Id == r.Target.Id &&
                    or.Param.Equals(r.Param) &&
                    ((or.Value == null && r.Value == null) || (or.Value != null && or.Value.Equals(r.Value)))));
     }
