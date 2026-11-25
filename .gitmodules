@@ -1,9 +1,9 @@
 [submodule "external/BaseClasses"]
 	path = external/BaseClasses
-	url = ../BaseClasses
+	url = ../cassius-core
 [submodule "external/AIGenerator"]
 	path = external/AIGenerator
-	url = ../AIGenerator
+	url = ../cassius-ai-generation
 [submodule "external/StructuredNarrative"]
 	path = external/StructuredNarrative
-	url = ../StructuredNarrative
+	url = ../cassius-structured-narrative
